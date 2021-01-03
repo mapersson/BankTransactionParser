@@ -20,6 +20,16 @@
                 "BankTransactionParser",
                 "${workspaceFolder}/RawTransactions.csv"
             ]
-        }
+        },
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "swift",
+            "args": [
+                "build",
+                "-c",
+                "release"
+            ]
+        },
     ]
 }
