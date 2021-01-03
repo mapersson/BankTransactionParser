@@ -1,7 +1,15 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,osx,swift,swiftpackagemanager,swiftpm,xcode
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,osx,swift,swiftpackagemanager,swiftpm,xcode
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,visualstudiocode,swiftpm,swiftpackagemanager,swift,osx,macos,cocoapods
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,visualstudiocode,swiftpm,swiftpackagemanager,swift,osx,macos,cocoapods
+
+### CocoaPods ###
+## CocoaPods GitIgnore Template
+
+# CocoaPods - Only use to conserve bandwidth / Save time on Pushing
+#           - Also handy if you have a large number of dependant pods
+#           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
+Pods/
 
 ### macOS ###
 # General
@@ -10,8 +18,7 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
-
+Icon
 
 # Thumbnails
 ._*
@@ -164,7 +171,7 @@ xcuserdata
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,osx,swift,swiftpackagemanager,swiftpm,xcode
+# End of https://www.toptal.com/developers/gitignore/api/xcode,visualstudiocode,swiftpm,swiftpackagemanager,swift,osx,macos,cocoapods
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
