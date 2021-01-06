@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Money",
+        "repositoryURL": "https://github.com/Flight-School/Money",
+        "state": {
+          "branch": null,
+          "revision": "2690838144b9e94e4d35bc6dd12edb6a07af6932",
+          "version": "1.2.1"
+        }
+      },
+      {
         "package": "swift-argument-parser",
         "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {

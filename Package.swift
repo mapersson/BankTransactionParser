@@ -8,6 +8,8 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "0.3.0")),
     .package(url: "https://github.com/swiftcsv/SwiftCSV", .upToNextMinor(from: "0.6.0")),
+    .package(
+      url: "https://github.com/Flight-School/Money", .upToNextMinor(from: "1.2.1")),
     // Dependencies declare other packages that this package depends on.
     // .package(url: /* package url */, from: "1.0.0"),
   ],
@@ -23,6 +25,7 @@ let package = Package(
       dependencies: [
         .product(name: "ArgumentParser", package: "swift-argument-parser"),
         .product(name: "SwiftCSV", package: "SwiftCSV"),
+        .product(name: "Money", package: "Money"),
       ]
     ),
     .testTarget(

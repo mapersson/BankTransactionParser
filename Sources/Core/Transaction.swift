@@ -1,9 +1,10 @@
 import Foundation
+import Money
 
 private struct Transaction {
   var date: Date
   var merchant: Merchant
-  var amount: Double
+  var amount: Decimal
 
   var description: String {
     let dateFormatter = DateFormatter()
@@ -14,7 +15,7 @@ private struct Transaction {
     let numberFormatter = NumberFormatter()
     numberFormatter.minimumFractionDigits = 2
     numberFormatter.maximumFractionDigits = 2
-    let formattedAmount = numberFormatter.string(from: NSNumber(value: amount)) ?? "0.00"
+    let formattedAmount = numberFormatter.string(from: amount as NSNumber) ?? "0.00"
 
     return "\(formattedDate),\(merchant.name),\(formattedAmount)"
   }
@@ -22,6 +23,7 @@ private struct Transaction {
 }
 
 struct TangTransaction: BankTransaction {
+  static var currency = CAD.self
   private let _transaction: Transaction
   private enum colNames: String {
     case date = "Transaction date"
@@ -35,8 +37,9 @@ struct TangTransaction: BankTransaction {
     return _transaction.merchant.name
   }
 
-  var amount: Double {
-    return _transaction.amount
+  var amount: Value {
+    let value = Money<CAD>(_transaction.amount)
+    return value
   }
 
   var description: String {
@@ -76,20 +79,28 @@ private func parseDate(from date: String) -> Date? {
 /// Parses the transaction amout from the provided string
 /// - Parameter string: A string representing the transaction amount.
 /// - Returns: A Double instance that contains the transaction amount. If there is a parsing error, nil is returned
-private func parseAmount(from string: String) -> Double? {
+private func parseAmount(from string: String) -> Decimal? {
   guard !string.isEmpty else {
     return nil
   }
   let trimmed = string.trimmingCharacters(in: .whitespaces)
-  return Double(trimmed)
+  return Decimal(Double(trimmed)!)
 }
 
 protocol BankTransaction {
   var date: Date { get }
   var merchant: String { get }
-  var amount: Double { get }
+  var amount: Value { get }
   var description: String { get }
 
   init(from dict: [String: String])
 
 }
+
+protocol Value {
+  var amount: Decimal { get }
+  var currency: CurrencyType.Type { get }
+}
+
+extension Money: Value {}
+
